@@ -111,7 +111,7 @@ There are also some improvements on documentation and tests working on arm64.
 
 ### Other changes
 
-- docs: update CLI flags in run.md ([#3748](https://github.com/rkt/rkt/pull/3748)). Also added rkt-run options present in rkt 1.27.0 but not present in the run.md markdown.  The entries in markdown have been sorted.
+- docs: update CLI flags in run.md ([#3748](https://github.com/rkt/rkt/pull/3748)). Also added rkt-run options present in rkt 1.27.0 but not present in the run.md markdown. The entries in markdown have been sorted.
 - tests/net: skip TestNetCustomBridge on semaphore ([#3740](https://github.com/rkt/rkt/pull/3740)). Reference https://github.com/rkt/rkt/issues/3739
 - doc: mention external stage1s ([#3723](https://github.com/rkt/rkt/pull/3723)). This was discussed on:
 https://github.com/rkt/rkt/pull/3645#issuecomment-296865635
@@ -130,12 +130,12 @@ This minor release contains bugfixes and other improvements related to the tests
 
 ## Bugfixes
 - stage0: list|status --format=json panics: RuntimeApp.Mounts.AppVolume is optional ([#3699](https://github.com/rkt/rkt/pull/3699)). When it is nil, the Volume info at the Pod level (with the same name) should be used. Without this patch `rkt list --format=json` panics on a nil pointer when Apps reference Volumes from the Pod level.
-- imagestore: Fix sql resource leaks ([#3682](https://github.com/rkt/rkt/pull/3682)). When using sql queries the rows iterator needs to be closed if the entire query  result is not iterated over. Failure to close the iterator results in resource leakage.
+- imagestore: Fix sql resource leaks ([#3682](https://github.com/rkt/rkt/pull/3682)). When using sql queries the rows iterator needs to be closed if the entire query result is not iterated over. Failure to close the iterator results in resource leakage.
 
 ## Other changes
 - networking: change the default-restricted subnet ([#3718](https://github.com/rkt/rkt/pull/3718)). Previously, we were using 172.17/16, which conflicts with the default
 Docker networking. Change it to 172.31/16.
-- scripts/pkg: improved detection of active mounts ([#3710](https://github.com/rkt/rkt/pull/3710)). On systems which have /var/lib/rkt as a separate partition, the active mount detection in before-remove needs to not get confused by the presence of /var/lib/rkt itself as a mount.  Therefore a longer path is used for active mount detection.
+- scripts/pkg: improved detection of active mounts ([#3710](https://github.com/rkt/rkt/pull/3710)). On systems which have /var/lib/rkt as a separate partition, the active mount detection in before-remove needs to not get confused by the presence of /var/lib/rkt itself as a mount. Therefore a longer path is used for active mount detection.
 - stage1/usr_from_coreos: add new image signing sub-key EF4B4ED9 ([#3686](https://github.com/rkt/rkt/pull/3686)). See coreos/init#236.
 - scripts: skip nonexistent stage1 images when packaging ([#3687](https://github.com/rkt/rkt/pull/3687)). Not all builds will generate all stage1 images. It depends on what `./configure` flags (`--with-stage1-flavors`) were used.
 - tests: Only run race test on supported arch ([#3684](https://github.com/rkt/rkt/pull/3684)). Fixes build errors like these when run on non amd64 machines:
