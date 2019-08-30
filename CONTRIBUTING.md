@@ -1,7 +1,7 @@
 # How to Contribute
 
 rkt is [Apache 2.0 licensed](LICENSE) and accepts contributions via
-GitHub pull requests.  This document outlines some of the conventions on
+GitHub pull requests. This document outlines some of the conventions on
 development workflow, commit message formatting, contact points and other
 resources to make it easier to get your contribution accepted.
 
