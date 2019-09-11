@@ -888,7 +888,7 @@ func support() Flags {
 
 			// Verify that XCR0[7:5] = ‘111b’ (OPMASK state, upper 256-bit of ZMM0-ZMM15 and
 			// ZMM16-ZMM31 state are enabled by OS)
-			/// and that XCR0[2:1] = ‘11b’ (XMM state and YMM state are enabled by OS).
+			// and that XCR0[2:1] = ‘11b’ (XMM state and YMM state are enabled by OS).
 			if (eax>>5)&7 == 7 && (eax>>1)&3 == 3 {
 				if ebx&(1<<16) != 0 {
 					rval |= AVX512F
